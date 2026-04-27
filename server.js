@@ -6,8 +6,17 @@ app.use(express.json());
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
+app.use(express.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
-  res.send("Draxx AI is running 🚀");
+  res.send(`
+    <h2>Draxx AI is Live 🚀</h2>
+    <form method="POST" action="/test">
+      <input name="name" placeholder="Name" required />
+      <input name="niche" placeholder="Niche" required />
+      <button type="submit">Generate Message</button>
+    </form>
+  `);
 });
 
 // Generate outreach message
