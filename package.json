@@ -1,0 +1,14 @@
+{
+  "name": "draxx-ai",
+  "version": "1.0.0",
+  "description": "Draxx AI Team",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "node-fetch": "^3.3.2"
+  }
+}
