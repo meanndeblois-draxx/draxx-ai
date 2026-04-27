@@ -18,6 +18,25 @@ app.get("/", (req, res) => {
     </form>
   `);
 });
+app.post("/test", async (req, res) => {
+  const { name, niche } = req.body;
+
+  const response = await fetch("https://draxx-ai.onrender.com/generate-message", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ name, niche })
+  });
+
+  const data = await response.json();
+
+  res.send(`
+    <h3>Generated Message:</h3>
+    <p>${data.message}</p>
+    <a href="/">Go Back</a>
+  `);
+});
 
 // Generate outreach message
 app.post("/generate-message", async (req, res) => {
